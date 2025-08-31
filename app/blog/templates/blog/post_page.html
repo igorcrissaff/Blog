@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% load static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+
+{% endblock extra_css %}
+
+{% block content %}
+<!-- Main Start -->
+<main class="d-flex p-3">
+    <aside>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius mollitia illum consequatur magnam, officia vitae sapiente quam provident necessitatibus quos qui. Asperiores suscipit nesciunt accusantium iure nobis? Doloremque, ad magnam.
+    </aside>
+
+    <section class="max-w-4xl mx-auto px-8 py-24">
+      <h1>{{ page.title }}</h1>
+      <a href="" class="flex items-center gap-1 mb-2">
+          Pete
+      </a>
+      <p class="text-sm text-neutral-500">{{ page.date }}</p>
+      <p class="text-2xl font-serif italic text-neutral-800">{{ page.intro }}</p>
+
+      <div class="mb-8">
+          {% image page.image width-800 %}
+          
+          <figcaption class="text-sm text-neutral-500 text-center mt-2 mb-4">
+              Image Caption
+          </figcaption>
+      </div>
+
+      <p>{{ page.body |richtext}}</p>
+
+      <div class="mt-4 inline-block">
+          <a href="" class="underline">Return to blog</a>
+      </div>
+
+    </section>
+
+    <aside>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius mollitia illum consequatur magnam, officia vitae sapiente quam provident necessitatibus quos qui. Asperiores suscipit nesciunt accusantium iure nobis? Doloremque, ad magnam.
+    </aside>
+</main>
+<!-- Main End -->
+{% endblock content %}

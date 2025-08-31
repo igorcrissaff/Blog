@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home_page.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<!-- Hero Start -->
+<div class="px-4 py-5 my-5 text-center"> 
+  <img class="d-block mx-auto mb-4" src="{% static 'assets/logo-nobg.png' %}" alt="" width="72" height="72"> 
+  
+  <h1 class="display-5 fw-bold text-body-emphasis">
+      LogiCafé
+  </h1> 
+
+  <div class="col-lg-6 mx-auto"> 
+    <p class="lead mb-4">
+      Artigos e noticias sobre tecnologia, programação, desenvolvimento web e muito mais. Fique por dentro das últimas tendências e dicas para aprimorar suas habilidades e conhecimentos na área de TI.
+    </p> 
+  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"> 
+
+  <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button> 
+  <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> </div> </div> </div>
+<!-- Hero End -->
+
+<!-- Main Start -->
+<main class="d-flex p-3">
+    <section class="container">
+        <h2 class="mb-4">Latest Posts</h2>
+
+        
+        <div class="d-flex gap-4 flex-wrap">
+          {% for child in page.get_children %}
+            <div class="card" style="width: 18rem;">
+
+            {% image child.image width-100 class="card-img-top" %}
+
+            <div class="card-body">
+                <h5 class="card-title">{{ child.title }}</h5>
+                <p class="card-text">{{ child.intro }}</p>
+                <a href="{{ child.url }}" class="btn btn-primary">Ler mais</a>
+            </div>
+            </div>
+          {% endfor %}
+        </div>
+        
+    </section>
+
+</main>
+<!-- Main End -->
+{% endblock content %}
