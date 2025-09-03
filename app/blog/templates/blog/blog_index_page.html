@@ -12,7 +12,7 @@
 
 {% block content %}
 <!-- Hero Start -->
-<div class="px-4 py-5 my-5 text-center"> 
+<div class="px-4 py-5 my-5 text-center border-bottom"> 
   <img class="d-block mx-auto mb-4" src="{% static 'assets/logo-nobg.png' %}" alt="" width="72" height="72"> 
   
   <h1 class="display-5 fw-bold text-body-emphasis">
@@ -23,24 +23,27 @@
     <p class="lead mb-4">
       Artigos e noticias sobre tecnologia, programação, desenvolvimento web e muito mais. Fique por dentro das últimas tendências e dicas para aprimorar suas habilidades e conhecimentos na área de TI.
     </p> 
-  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"> 
-
-  <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button> 
-  <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> </div> </div> </div>
+  
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center invisible"> 
+      <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button> 
+      <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> 
+    </div> 
+  </div> 
+</div>
 <!-- Hero End -->
 
 <!-- Main Start -->
-<main class="d-flex p-3">
+<main class="d-flex p-3 ">
     <section class="container">
-        <h2 class="mb-4">Latest Posts</h2>
+        <h2 class="mb-4">Posts</h2>
 
         
         <div class="d-flex gap-4 flex-wrap">
           {% for child in page.get_children %}
             <div class="card" style="width: 18rem;">
 
-            {% image child.image width-100 class="card-img-top" %}
-
+            {% image child.image width-1000 class="card-img-top" %}
+            
             <div class="card-body">
                 <h5 class="card-title">{{ child.title }}</h5>
                 <p class="card-text">{{ child.intro }}</p>
@@ -51,7 +54,35 @@
         </div>
         
     </section>
-
+    <!-- Side bar -->
+    <!--
+    <aside class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary" style="width: 380px;"> 
+      <a href="/" class="d-flex align-items-center flex-shrink-0 p-3 link-body-emphasis text-decoration-none border-bottom"> 
+        <span class="fs-5 fw-semibold">List group</span> 
+      </a> 
+      <div class="list-group list-group-flush border-bottom scrollarea"> 
+        <a href="#" class="list-group-item list-group-item-action active py-3 lh-sm" aria-current="true"> 
+          <div class="d-flex w-100 align-items-center justify-content-between"> 
+            <strong class="mb-1">List group item heading</strong> 
+            <small>Wed</small> 
+          </div> 
+          <div class="col-10 mb-1 small">
+            Some placeholder content in a paragraph below the heading and date.
+          </div> 
+        </a> 
+        <a href="#" class="list-group-item list-group-item-action py-3 lh-sm"> 
+          <div class="d-flex w-100 align-items-center justify-content-between"> 
+            <strong class="mb-1">List group item heading</strong> 
+            <small class="text-body-secondary">Tues</small> 
+          </div>
+          <div class="col-10 mb-1 small">
+            Some placeholder content in a paragraph below the heading and date.
+          </div> 
+        </a>  
+      </div>
+    </aside>
+    -->
+    <!-- Side bar End -->
 </main>
 <!-- Main End -->
 {% endblock content %}

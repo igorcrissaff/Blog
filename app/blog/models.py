@@ -6,7 +6,7 @@ from taggit.models import TaggedItemBase
 
 from wagtail.models import Page
 from wagtail.fields import RichTextField
-from wagtail.admin.panels import FieldPanel, MultiFieldPanel
+from wagtail.admin.panels import FieldPanel
 
 class BlogIndexPage(Page):
     pass
@@ -16,7 +16,7 @@ class PostPageTag(TaggedItemBase):
 
 class PostPage(Page):
     date = models.DateField("Data de publicação", auto_now=True)
-    intro = models.CharField(max_length=1000)
+    intro = models.CharField(max_length=1000, null=True, blank=True, verbose_name="Introdução")
     body = RichTextField(verbose_name="Conteúdo")
     tags = ClusterTaggableManager(through=PostPageTag, blank=True)
     
